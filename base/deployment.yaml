@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-java-mvn-app-deployment
+  labels:
+    app: sample-java-mvn-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-java-mvn-app
+  template:
+    metadata:
+      labels:
+        app: sample-java-mvn-app
+    spec:
+      containers:
+      - name: java-mvn-app
+        image: <image_goes_here>
+        ports:
+        - containerPort: 80
